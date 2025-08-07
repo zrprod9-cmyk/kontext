@@ -13,6 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /* ---------- ENV & FAL ---------- */
 dotenv.config({ path: path.join(__dirname, '.env') });
+ codex/fetch-and-validate-fal_key-in-index.js
 const falKey = process.env.FAL_KEY;
 if (!falKey) {
   const msg = 'Missing FAL_KEY environment variable';
@@ -20,6 +21,14 @@ if (!falKey) {
   throw new Error(msg);
 }
 fal.config({ credentials: falKey.trim() });
+
+const falKey = process.env.FAL_KEY?.trim();
+if (falKey) {
+  fal.config({ credentials: falKey });
+} else {
+  console.warn('⚠️  FAL_KEY environment variable is missing');
+}
+ master
 
 /* ---------- tiny JSON “DB” helpers ---------- */
 const read = async (f, d = []) =>
