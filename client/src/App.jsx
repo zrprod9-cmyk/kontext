@@ -29,6 +29,17 @@ export default function App() {
   const [openLora, setOpenLora] = useState(false);
   const [show, setShow] = useState(null);
   const bottom = useRef(null);
+  const imgCache = useRef({});
+
+  const cacheImages = (imgs) => {
+    imgs.forEach(({ url }) => {
+      if (!imgCache.current[url]) {
+        const i = new Image();
+        i.src = url;
+        imgCache.current[url] = i;
+      }
+    });
+  };
 
   useEffect(() => {
     axios.get(`${API}/api/loras`).then((r) => setLoraList(r.data));
@@ -42,10 +53,7 @@ export default function App() {
         boards.map(async (b) => {
           const { data: imgs } = await axios.get(`${API}/api/boards/${b.id}`);
           cacheObj[b.id] = imgs;
-          imgs.forEach((img) => {
-            const i = new Image();
-            i.src = img.url;
-          });
+          cacheImages(imgs);
           const last = imgs.at(-1)?.url;
           if (last) thumbsObj[b.id] = last;
         })
@@ -69,10 +77,7 @@ export default function App() {
       setCache((c) => ({ ...c, [bid]: r.data }));
       if (r.data.length)
         setThumbs((t) => ({ ...t, [bid]: r.data[r.data.length - 1].url }));
-      r.data.forEach((img) => {
-        const i = new Image();
-        i.src = img.url;
-      });
+      cacheImages(r.data);
     });
   }, [bid, cached]);
 
@@ -129,8 +134,7 @@ export default function App() {
         [bid]: (c[bid] || []).map((it) => (it.id === tmpId ? data : it)),
       }));
       setThumbs((t) => ({ ...t, [bid]: data.url }));
-      const imgObj = new Image();
-      imgObj.src = data.url;
+      cacheImages([data]);
       setPrompt('');
     } catch (e) {
       setGal((g) => g.filter((it) => it.id !== tmpId));
