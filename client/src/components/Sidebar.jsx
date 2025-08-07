@@ -37,27 +37,33 @@ export default function Sidebar({ boards, current, onNew, onPick, onDelete, thum
       </button>
 
       <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto px-1">
-        {[...boards].reverse().map((b) => (
-          <div
-            key={b.id}
-            className={`group relative mx-auto h-20 w-20 overflow-hidden rounded border ${
-              current === b.id ? 'border-primary' : 'border-transparent'
-            }`}
-          >
-            <img
-              src={thumbs[b.id]}
-              onClick={() => onPick(b.id)}
-              onError={(e) => (e.currentTarget.style.display = 'none')}
-              className="h-full w-full cursor-pointer object-cover"
-            />
-            <button
-              onClick={() => onDelete(b.id)}
-              className="absolute -right-1 -top-1 hidden h-5 w-5 items-center justify-center rounded-full bg-black/70 text-white hover:bg-black/90 group-hover:flex"
+        {Array.isArray(boards) ? (
+          [...boards].reverse().map((b, i) => (
+            <div
+              key={b.id ?? i}
+              className={`group relative mx-auto h-20 w-20 overflow-hidden rounded border ${
+                current === b.id ? 'border-primary' : 'border-transparent'
+              }`}
             >
-              <X className="h-3 w-3" />
-            </button>
-          </div>
-        ))}
+              <img
+                src={thumbs[b.id]}
+                onClick={() => onPick(b.id)}
+                onError={(e) => (e.currentTarget.style.display = 'none')}
+                className="h-full w-full cursor-pointer object-cover"
+              />
+              <button
+                onClick={() => onDelete(b.id)}
+                className="absolute -right-1 -top-1 hidden h-5 w-5 items-center justify-center rounded-full bg-black/70 text-white hover:bg-black/90 group-hover:flex"
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-xs text-muted-foreground">
+            No boards available
+          </p>
+        )}
       </div>
 
       <button

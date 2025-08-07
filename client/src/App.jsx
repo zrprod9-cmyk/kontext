@@ -42,13 +42,18 @@ export default function App() {
   useEffect(() => {
     api.get('/loras').then((r) => setLoraList(r.data));
     (async () => {
-      const { data: boards } = await api.get('/boards');
-      setBoards(boards);
-      if (boards.length) setBid(boards[boards.length - 1].id);
+      const { data: boardsData } = await api.get('/boards');
+      if (!Array.isArray(boardsData)) {
+        console.error('Boards data should be an array', boardsData);
+        setBoards([]);
+        return;
+      }
+      setBoards(boardsData);
+      if (boardsData.length) setBid(boardsData[boardsData.length - 1].id);
       const cacheObj = {};
       const thumbsObj = {};
       await Promise.all(
-        boards.map(async (b) => {
+        boardsData.map(async (b) => {
           const { data: imgs } = await api.get(`/boards/${b.id}`);
           cacheObj[b.id] = imgs;
           cacheImages(imgs);
@@ -176,19 +181,20 @@ export default function App() {
 
       <div className="relative flex-1 overflow-y-auto">
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 p-6 md:grid-cols-2">
-          {gallery.map((g) =>
-            g.loading ? (
-              <LoaderCard key={g.id} />
-            ) : (
-              <ImageCard
-                key={g.id}
-                img={g}
-                boardId={bid}
-                onRemove={removeImage}
-                onShow={setShow}
-              />
-            )
-          )}
+          {Array.isArray(gallery) &&
+            gallery.map((g) =>
+              g.loading ? (
+                <LoaderCard key={g.id} />
+              ) : (
+                <ImageCard
+                  key={g.id}
+                  img={g}
+                  boardId={bid}
+                  onRemove={removeImage}
+                  onShow={setShow}
+                />
+              )
+            )}
           <div ref={bottom}></div>
         </div>
 

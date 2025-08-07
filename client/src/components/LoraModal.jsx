@@ -17,6 +17,7 @@ export default function LoraModal({
   const [editId, setEditId] = useState(null);
   const [f, setF] = useState(blank);
   const [files, setFiles] = useState({});
+  const safeList = Array.isArray(list) ? list : [];
 
   useEffect(() => {
     if (!open) reset();
@@ -88,55 +89,61 @@ export default function LoraModal({
                 <Plus size={48} className="text-white/60" />
               </div>
 
-              {list.map((l) => (
-                <div
-                  key={l.id}
-                  onClick={() => {
-                    onPick(l);
-                    onClose();
-                  }}
-                  className="group relative flex h-[400px] w-[320px] cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 transition-all hover:border-violet-500"
-                >
-                  <div className="flex flex-1 flex-col items-center justify-center">
-                    {l.before && l.after ? (
-                      <Compare before={l.before} after={l.after} />
-                    ) : (
-                      <img
-                        src={l.before || l.after || '/placeholder.png'}
-                        alt=""
-                        className="h-full w-full rounded-t-2xl object-cover"
-                      />
-                    )}
-                  </div>
-                  <div className="rounded-b-2xl bg-black/30 p-4 pb-2">
-                    <p className="line-clamp-1 text-lg font-semibold">{l.name}</p>
-                    {l.desc && (
-                      <p className="line-clamp-3 text-[15px] leading-tight text-white/70">
-                        {l.desc}
-                      </p>
-                    )}
-                  </div>
+              {!Array.isArray(list) ? (
+                <p className="w-full text-center text-sm text-red-400">
+                  Invalid LoRA list
+                </p>
+              ) : (
+                safeList.map((l, i) => (
+                  <div
+                    key={l.id ?? i}
+                    onClick={() => {
+                      onPick(l);
+                      onClose();
+                    }}
+                    className="group relative flex h-[400px] w-[320px] cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 transition-all hover:border-violet-500"
+                  >
+                    <div className="flex flex-1 flex-col items-center justify-center">
+                      {l.before && l.after ? (
+                        <Compare before={l.before} after={l.after} />
+                      ) : (
+                        <img
+                          src={l.before || l.after || '/placeholder.png'}
+                          alt=""
+                          className="h-full w-full rounded-t-2xl object-cover"
+                        />
+                      )}
+                    </div>
+                    <div className="rounded-b-2xl bg-black/30 p-4 pb-2">
+                      <p className="line-clamp-1 text-lg font-semibold">{l.name}</p>
+                      {l.desc && (
+                        <p className="line-clamp-3 text-[15px] leading-tight text-white/70">
+                          {l.desc}
+                        </p>
+                      )}
+                    </div>
 
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      beginEdit(l);
-                    }}
-                    className="absolute left-2 top-2 hidden rounded p-1 hover:bg-white/10 group-hover:block"
-                  >
-                    <Pencil size={18} />
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDelete(l.id);
-                    }}
-                    className="absolute right-2 top-2 hidden rounded p-1 hover:bg-white/10 group-hover:block"
-                  >
-                    <Trash2 size={18} />
-                  </button>
-                </div>
-              ))}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        beginEdit(l);
+                      }}
+                      className="absolute left-2 top-2 hidden rounded p-1 hover:bg-white/10 group-hover:block"
+                    >
+                      <Pencil size={18} />
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDelete(l.id);
+                      }}
+                      className="absolute right-2 top-2 hidden rounded p-1 hover:bg-white/10 group-hover:block"
+                    >
+                      <Trash2 size={18} />
+                    </button>
+                  </div>
+                ))
+              )}
             </div>
           ) : (
             <div className="space-y-5">
