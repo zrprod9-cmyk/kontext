@@ -16,6 +16,7 @@ export default function App() {
   const [bid, setBid] = useState(null);
   const [gallery, setGal] = useState([]);
   const [thumbs, setThumbs] = useState({});
+  const [cache, setCache] = useState({});
 
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState('');
@@ -35,35 +36,57 @@ export default function App() {
       const { data: boards } = await axios.get(`${API}/api/boards`);
       setBoards(boards);
       if (boards.length) setBid(boards[boards.length - 1].id);
-
-      const thumbsEntries = await Promise.all(
+      const cacheObj = {};
+      const thumbsObj = {};
+      await Promise.all(
         boards.map(async (b) => {
           const { data: imgs } = await axios.get(`${API}/api/boards/${b.id}`);
+          cacheObj[b.id] = imgs;
+          imgs.forEach((img) => {
+            const i = new Image();
+            i.src = img.url;
+          });
           const last = imgs.at(-1)?.url;
-          return last ? [b.id, last] : null;
+          if (last) thumbsObj[b.id] = last;
         })
       );
-      setThumbs((t) => ({
-        ...t,
-        ...Object.fromEntries(thumbsEntries.filter(Boolean)),
-      }));
+      setCache(cacheObj);
+      setThumbs((t) => ({ ...t, ...thumbsObj }));
     })();
   }, []);
 
+  const cached = cache[bid];
   useEffect(() => {
     if (!bid) return;
+    if (cached) {
+      setGal(cached);
+      if (cached.length)
+        setThumbs((t) => ({ ...t, [bid]: cached[cached.length - 1].url }));
+      return;
+    }
     axios.get(`${API}/api/boards/${bid}`).then((r) => {
       setGal(r.data);
+      setCache((c) => ({ ...c, [bid]: r.data }));
       if (r.data.length)
         setThumbs((t) => ({ ...t, [bid]: r.data[r.data.length - 1].url }));
+      r.data.forEach((img) => {
+        const i = new Image();
+        i.src = img.url;
+      });
     });
-  }, [bid]);
+  }, [bid, cached]);
 
   useEffect(() => {
     bottom.current?.scrollIntoView({ behavior: 'smooth' });
   }, [gallery]);
 
-  const removeImage = (id) => setGal((g) => g.filter((it) => it.id !== id));
+  const removeImage = (id) => {
+    setGal((g) => g.filter((it) => it.id !== id));
+    setCache((c) => ({
+      ...c,
+      [bid]: (c[bid] || []).filter((it) => it.id !== id),
+    }));
+  };
 
   const handleFile = (e) => {
     const f = e.target.files?.[0];
@@ -81,6 +104,10 @@ export default function App() {
 
     const tmpId = Date.now();
     setGal((g) => [...g, { id: tmpId, loading: true }]);
+    setCache((c) => ({
+      ...c,
+      [bid]: [...(c[bid] || []), { id: tmpId, loading: true }],
+    }));
     setBusy(true);
     setErr('');
 
@@ -97,10 +124,20 @@ export default function App() {
       );
 
       setGal((g) => g.map((it) => (it.id === tmpId ? data : it)));
+      setCache((c) => ({
+        ...c,
+        [bid]: (c[bid] || []).map((it) => (it.id === tmpId ? data : it)),
+      }));
       setThumbs((t) => ({ ...t, [bid]: data.url }));
+      const imgObj = new Image();
+      imgObj.src = data.url;
       setPrompt('');
     } catch (e) {
       setGal((g) => g.filter((it) => it.id !== tmpId));
+      setCache((c) => ({
+        ...c,
+        [bid]: (c[bid] || []).filter((it) => it.id !== tmpId),
+      }));
       setErr(e.response?.data?.error || e.message);
     } finally {
       setBusy(false);
@@ -113,6 +150,7 @@ export default function App() {
     setBid(data.id);
     setGal([]);
     setPreview('');
+    setCache((c) => ({ ...c, [data.id]: [] }));
   };
 
   return (
@@ -125,6 +163,10 @@ export default function App() {
         onDelete={async (id) => {
           await axios.delete(`${API}/api/boards/${id}`);
           setBoards(boards.filter((b) => b.id !== id));
+          setCache((c) => {
+            const { [id]: _, ...rest } = c;
+            return rest;
+          });
           if (bid === id) setBid(null);
         }}
         thumbs={thumbs}
