@@ -35,7 +35,7 @@ export default function LoraModal({
 
   const handleDelete = async (id) => {
     if (!window.confirm('Удалить эту LoRA?')) return;
-    await api.delete(`/api/loras/${id}`);
+    await api.delete(`/loras/${id}`);
     onDelete(id);
     if (editId === id) reset();
   };
@@ -50,10 +50,10 @@ export default function LoraModal({
     Object.entries(files).forEach(([k, v]) => v && fd.append(k, v));
 
     if (editId > 0) {
-      await api.put(`/api/loras/${editId}`, fd);
+      await api.put(`/loras/${editId}`, fd);
       onUpdate(editId, f);
     } else {
-      const { data } = await api.post('/api/loras', fd);
+      const { data } = await api.post('/loras', fd);
       onAdd(data);
     }
     reset();
