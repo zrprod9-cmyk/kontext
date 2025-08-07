@@ -13,7 +13,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /* ---------- ENV & FAL ---------- */
 dotenv.config({ path: path.join(__dirname, '.env') });
-fal.config({ credentials: process.env.FAL_KEY.trim() });
+const falKey = process.env.FAL_KEY;
+if (!falKey) {
+  const msg = 'Missing FAL_KEY environment variable';
+  console.error(msg);
+  throw new Error(msg);
+}
+fal.config({ credentials: falKey.trim() });
 
 /* ---------- tiny JSON “DB” helpers ---------- */
 const read = async (f, d = []) =>
