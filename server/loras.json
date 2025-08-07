@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1753366733379",
+    "name": "HeroSwap",
+    "desc": "Заменяет персонажа в иллюстрации, сохраняя свет, фон и стиль сцены.",
+    "url": "https://v3.fal.media/files/panda/qzabe7Ldf8r5F_6Burfm8_adapter_model_comfy_converted.safetensors",
+    "before": "https://v3.fal.media/files/lion/jgIT9uCLSmho8k_jd_rQP_1753383240908.jpeg",
+    "after": "https://v3.fal.media/files/koala/ItHxQcGE0Pmhd3eyxP5Wa_1753383244654.jpeg"
+  },
+  {
+    "id": "1753366733380",
+    "name": "Human base mash",
+    "desc": "Преобразует персонажа в 3D base mesh без одежды и деталей.",
+    "url": "https://v3.fal.media/files/koala/cWSmfZVXNlPAG3DwfSTRm_adapter_model_comfy_converted.safetensors",
+    "before": "https://v3.fal.media/files/koala/khZip8lj7uSKuuCJXrWMb_1753385478294.jpeg",
+    "after": "https://v3.fal.media/files/tiger/4hDy6IJ4vHxZXk8kdvPUg_1753385481599.jpeg"
+  },
+  {
+    "id": 1753366733381,
+    "name": "Character Blend",
+    "desc": "Вписывает любого персонажа в фон сцены — по свету, цвету и тону.",
+    "url": "https://v3.fal.media/files/elephant/-zC728xouuC2AbzPCqHzl_adapter_model_comfy_converted.safetensors",
+    "before": "https://v3.fal.media/files/elephant/5y9vD2eDdsHvjlWgHmb7H_1753385782051.jpeg",
+    "after": "https://v3.fal.media/files/lion/gy0H3wvLzbTiAWEa1Rzrf_1753385785578.jpeg"
+  },
+  {
+    "id": "1753366733382",
+    "name": "Repose",
+    "desc": "Встраивает персонажа в 3D-позу — с сохранением формы, ракурса и движения.",
+    "url": "https://v3.fal.media/files/panda/dD6yIqjmBGvgEy6gn-aEG_adapter_model_comfy_converted.safetensors",
+    "before": "https://v3.fal.media/files/zebra/u2yrfru0TsiRK9pxFxUxw_1753386182190.jpeg",
+    "after": "https://v3.fal.media/files/lion/3DV_qBcB50ALTFmJA8zhP_1753386185644.jpeg"
+  },
+  {
+    "id": 1753366733383,
+    "name": "cap4baraV1",
+    "desc": "Make render of Capybara colour sketch  1:1 ration",
+    "url": "https://v3.fal.media/files/rabbit/sh_HeZhyUQ5h9xnKf9P38_adapter_model_comfy_converted.safetensors",
+    "before": "https://v3.fal.media/files/kangaroo/Vdr_KEOqoX94JPPfY0hW1_1753425397339.png",
+    "after": "https://v3.fal.media/files/panda/D-XFOu9YnEW44k3x3GtvO_1753425401529.png"
+  },
+  {
+    "id": 1753366733384,
+    "name": "face9bend",
+    "desc": "Делает повороты головы персонажа с разных ракурсов. Файл нужно подготовить как на примере.",
+    "url": "https://v3.fal.media/files/monkey/dSVR_yArjylDaY6xanP98_adapter_model_comfy_converted.safetensors",
+    "before": "https://v3.fal.media/files/rabbit/SW_ntY9MpLEnoLEJoGIzc_1753446383196.png",
+    "after": "https://v3.fal.media/files/tiger/FvbDzouqShVLf_b_4on5g_1753446386427.png"
+  },
+  {
+    "id": 1753366733385,
+    "name": "Colorfulness",
+    "desc": "Добавляет живопистности",
+    "url": "https://v3.fal.media/files/koala/jRH7h3z6UPoFS1AQ_DahC_adapter_model_comfy_converted.safetensors",
+    "before": "https://v3.fal.media/files/rabbit/9GioyqIUNTBXN_SwKvEpk_1754215643886.jpeg",
+    "after": "https://v3.fal.media/files/tiger/ThPcXwcJNOMVsc-zbst4Y_1754215646687.jpeg"
+  },
+  {
+    "id": 1753366733386,
+    "name": "Polish art",
+    "desc": "Заполишить картинки и убрать мазки ",
+    "url": "https://v3.fal.media/files/koala/hbielBc7D_yPb8obnEBH0_adapter_model_comfy_converted.safetensors",
+    "before": "https://v3.fal.media/files/tiger/Yx65oR9U0GC9C6gR9S5E8_1754485601214.png",
+    "after": "https://v3.fal.media/files/lion/Cc5ussKD67wnYn7IPS6zH_1754485604610.png"
+  }
+]

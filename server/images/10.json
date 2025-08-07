@@ -1,0 +1,248 @@
+[
+  {
+    "id": 1754313686873,
+    "prompt": "A bright and whimsical cartoon-style illustration of a victorious zombie race in a colorful fairytale setting. (pam_z) A cheerful female zombie with orange-red hair, purple stitched skin, and a golden yellow dress triumphantly crosses the finish line with arms wide open. Her smile is full of confidence and joy. Beside her, a cute zombie pet with stitched ears (a Frankenstein-style dog or squirrel) runs proudly by her side. The finish line ribbon is decorated with cryptocurrency symbols like Bitcoin, Tether, and Ethereum. The track curves through a lush green landscape under a bright blue sky with puffy clouds.  Style: colorful, exaggerated, storybook aesthetic, humorous undead twist. Atmosphere: cheerful, quirky, slightly spooky fairytale. Lighting: soft cinematic glow, bold outlines, golden and red highlights, playful cartoon vibe. Details: textured grass, stylized trees, ribbon movement, stitched characters, no noses, expressive eyes.",
+    "lora": "Character Blend",
+    "url": "https://v3.fal.media/files/zebra/BoiwB0Liyr8VZf7JAoOTu.png"
+  },
+  {
+    "id": 1754374334518,
+    "prompt": "(no prompt)",
+    "lora": "Human base mash",
+    "url": "https://v3.fal.media/files/lion/qQ1ceTpiEoPLRB0b2gedz.png"
+  },
+  {
+    "id": 1754374541743,
+    "prompt": "(no prompt)",
+    "lora": "Repose",
+    "url": "https://v3.fal.media/files/monkey/emJwSNLiMcFnMjCONyRhV.png"
+  },
+  {
+    "id": 1754374638502,
+    "prompt": "(no prompt)",
+    "lora": "Human base mash",
+    "url": "https://v3.fal.media/files/rabbit/rC_XUcAzDUu3lpn3K5NLH.png"
+  },
+  {
+    "id": 1754374651734,
+    "prompt": "(no prompt)",
+    "lora": "Human base mash",
+    "url": "https://v3.fal.media/files/lion/6fi9JXSSZ1s5HPC6pgooz.png"
+  },
+  {
+    "id": 1754374711861,
+    "prompt": "(no prompt)",
+    "lora": "Human base mash",
+    "url": "https://v3.fal.media/files/rabbit/Elfz-r4doAriakmQYK7bz.png"
+  },
+  {
+    "id": 1754374732531,
+    "prompt": "(no prompt)",
+    "lora": "Human base mash",
+    "url": "https://v3.fal.media/files/penguin/BuR0DjlFDOCBzTYvO8BMB.png"
+  },
+  {
+    "id": 1754374813791,
+    "prompt": "(no prompt)",
+    "lora": "Repose",
+    "url": "https://v3.fal.media/files/koala/xlmKwXVDzqDeevm8o_Luo.png"
+  },
+  {
+    "id": 1754375352093,
+    "prompt": "(no prompt)",
+    "lora": "Colorfulness",
+    "url": "https://v3.fal.media/files/koala/o3T-zpqH8KJQUaONSNs6z.png"
+  },
+  {
+    "id": 1754375444502,
+    "prompt": "(no prompt)",
+    "lora": "Colorfulness",
+    "url": "https://v3.fal.media/files/kangaroo/FRsGP0VvcflGBf7ePwzFU.png"
+  },
+  {
+    "id": 1754375465469,
+    "prompt": "(no prompt)",
+    "lora": "Colorfulness",
+    "url": "https://v3.fal.media/files/tiger/NjVmO4qtudzsGJ7mJTMAE.png"
+  },
+  {
+    "id": 1754375646926,
+    "prompt": "(no prompt)",
+    "lora": "Character Blend",
+    "url": "https://v3.fal.media/files/panda/u1wnj1kK2zPstnAZsl18A.png"
+  },
+  {
+    "id": 1754375683456,
+    "prompt": "(no prompt)",
+    "lora": "Character Blend",
+    "url": "https://v3.fal.media/files/kangaroo/woQ1u9q7UgKLcyz2UdA7r.png"
+  },
+  {
+    "id": 1754375766220,
+    "prompt": "(no prompt)",
+    "lora": "Colorfulness",
+    "url": "https://v3.fal.media/files/panda/O9MCnHZi91iRrYQPa9T6h.png"
+  },
+  {
+    "id": 1754375869513,
+    "prompt": "(no prompt)",
+    "lora": "Colorfulness",
+    "url": "https://v3.fal.media/files/penguin/_qvC1y-8b5OUTSe563As4.png"
+  },
+  {
+    "id": 1754375899220,
+    "prompt": "(no prompt)",
+    "lora": "Character Blend",
+    "url": "https://v3.fal.media/files/zebra/iIrDS9EKXUl2PcwX5nEVP.png"
+  },
+  {
+    "id": 1754376102807,
+    "prompt": "(no prompt)",
+    "lora": "HeroSwap",
+    "url": "https://v3.fal.media/files/lion/v2j8bTGI_J1jBczVMQE8i.png"
+  },
+  {
+    "id": 1754381093521,
+    "prompt": "(no prompt)",
+    "lora": "cap4baraV1",
+    "url": "https://v3.fal.media/files/kangaroo/GYhc2_USEEyeOuraFi7D7.png"
+  },
+  {
+    "id": 1754385930383,
+    "prompt": "(no prompt)",
+    "lora": "cap4baraV1",
+    "url": "https://v3.fal.media/files/monkey/gDPMRKXk5ONMGXcKXjQWp.png"
+  },
+  {
+    "id": 1754387640233,
+    "prompt": "add soccer stadium on bg with green field",
+    "lora": "",
+    "url": "https://v3.fal.media/files/lion/zqDBu1vW4VHnWkt_i0fOK.png"
+  },
+  {
+    "id": 1754387723331,
+    "prompt": "add soccer stadium on bg ",
+    "lora": "",
+    "url": "https://v3.fal.media/files/tiger/lmTYGXQZ9e85dEfIiBMQD.png"
+  },
+  {
+    "id": 1754387927985,
+    "prompt": "Change the background to a large football stadium filled with cheering fans under a bright sky, while keeping the three women in the exact same position and pose, with the same lighting, clothing, and expression. Preserve the blue scarves and overall composition. Stadium should appear realistic and well-lit, with visible field and stands in the distance.",
+    "lora": "",
+    "url": "https://v3.fal.media/files/lion/kIRx1QOalO3Xz6uQ2lWQW.png"
+  },
+  {
+    "id": 1754387958604,
+    "prompt": "(no prompt)",
+    "lora": "",
+    "url": "https://v3.fal.media/files/kangaroo/lRuBk9SqWHRQCJ2SDl8nJ.png"
+  },
+  {
+    "id": 1754387998425,
+    "prompt": "(no prompt)",
+    "lora": "Character Blend",
+    "url": "https://v3.fal.media/files/lion/I0h53C-5s0ADz8R2MF-Mt.png"
+  },
+  {
+    "id": 1754388055651,
+    "prompt": "(no prompt)",
+    "lora": "Colorfulness",
+    "url": "https://v3.fal.media/files/tiger/HhkrdYYwNddvbdRR69XNO.png"
+  },
+  {
+    "id": 1754388107155,
+    "prompt": "Change the background to a tropical scene in Bali: the three women are now standing on lush green grass near the edge of a seaside cliff, with the turquoise ocean and gentle waves visible behind them. Add palm trees and tropical plants in the distance. Keep the women in the exact same position, pose, clothing, lighting, and facial expressions. Preserve the blue scarves and overall composition.",
+    "lora": "",
+    "url": "https://v3.fal.media/files/koala/bB1SCDaI2oho6OS7GInbq.png"
+  },
+  {
+    "id": 1754388127874,
+    "prompt": "(no prompt)",
+    "lora": "",
+    "url": "https://v3.fal.media/files/penguin/vgP_cZxKqL1V3p9BolAf7.png"
+  },
+  {
+    "id": 1754388148396,
+    "prompt": "Change the background to a tropical scene in Bali: the three women are now standing on lush green grass near the edge of a seaside cliff, with the turquoise ocean and gentle waves visible behind them. Add palm trees and tropical plants in the distance. Keep the women in the exact same position, pose, clothing, lighting, and facial expressions. Preserve the blue scarves and overall composition.",
+    "lora": "",
+    "url": "https://v3.fal.media/files/rabbit/NSbLjR-R0ZpVZNNlNe6UA.png"
+  },
+  {
+    "id": 1754388166167,
+    "prompt": "(no prompt)",
+    "lora": "",
+    "url": "https://v3.fal.media/files/kangaroo/2UkQoj7XK7nf8VP9Q7si_.png"
+  },
+  {
+    "id": 1754388211022,
+    "prompt": "\"Replace the background with a tropical cliffside scene in Bali, featuring green grass and the turquoise ocean with soft waves, visible behind the subjects. Add distant palm trees and tropical foliage. Keep the entire foreground image completely unchanged — including the exact crop, position, pose, proportions, lighting, and colors of the three women and their clothing. Do not change their appearance or framing. Only replace the background",
+    "lora": "",
+    "url": "https://v3.fal.media/files/elephant/ipQjIa8oxir690ILPHsvy.png"
+  },
+  {
+    "id": 1754388234008,
+    "prompt": "(no prompt)",
+    "lora": "",
+    "url": "https://v3.fal.media/files/lion/53nvzY0lCyGhdwgtFgLWU.png"
+  },
+  {
+    "id": 1754388257382,
+    "prompt": "\"Replace the background with a tropical cliffside scene in Bali, featuring green grass and the turquoise ocean with soft waves, visible behind the subjects. Add distant palm trees and tropical foliage. Keep the entire foreground image completely unchanged — including the exact crop, position, pose, proportions, lighting, and colors of the three women and their clothing. Do not change their appearance or framing. Only replace the background",
+    "lora": "",
+    "url": "https://v3.fal.media/files/elephant/sox9cP4DwcO7zDpGVa6-m.png"
+  },
+  {
+    "id": 1754388314088,
+    "prompt": "Replace the background with a luxurious tropical villa scene: the three women are now standing on green grass in the backyard of a modern villa in Bali, with a clear view of an infinity pool nearby and tropical plants surrounding the property. Include palm trees and blue sky. Keep the entire foreground image fully unchanged — including the exact crop, position, pose, proportions, clothing, lighting, and facial expressions of the women. Do not modify framing or composition. Only the background should change",
+    "lora": "",
+    "url": "https://v3.fal.media/files/koala/Ze7_mHuLnFmpey3lHU2P6.png"
+  },
+  {
+    "id": 1754388338949,
+    "prompt": "Replace the background with a luxurious tropical villa scene: the three women are now standing on green grass in the backyard of a modern villa in Bali, with a clear view of an infinity pool nearby and tropical plants surrounding the property. Include palm trees and blue sky. Keep the entire foreground image fully unchanged — including the exact crop, position, pose, proportions, clothing, lighting, and facial expressions of the women. Do not modify framing or composition. Only the background should change",
+    "lora": "",
+    "url": "https://v3.fal.media/files/kangaroo/ro42-m5W1vd2JQf70uMgM.png"
+  },
+  {
+    "id": 1754388388884,
+    "prompt": "Replace the background with a luxurious tropical villa scene: the three women are now standing on green grass in the backyard of a modern villa in Bali,  tropical plants surrounding the property. Include palm trees and blue sky. Keep the entire foreground image fully unchanged — including the exact crop, position, pose, proportions, clothing, lighting, and facial expressions of the women. Do not modify framing or composition. Only the background should change",
+    "lora": "",
+    "url": "https://v3.fal.media/files/panda/SwIaLwlqWv3WswlMt1zpE.png"
+  },
+  {
+    "id": 1754388417777,
+    "prompt": "Replace the background with a luxurious tropical villa scene: the three women are now standing on green grass in the backyard of a modern villa in Bali, tropical plants surrounding the property. Include palm trees and blue sky. Keep the entire foreground image fully unchanged — including the exact crop, position, pose, proportions, clothing, lighting, and facial expressions of the women. Do not modify framing or composition. Only the background should change",
+    "lora": "",
+    "url": "https://v3.fal.media/files/tiger/qoa0uHMPgBk4pbcfHojHV.png"
+  },
+  {
+    "id": 1754388508775,
+    "prompt": "Replace the background with a clean, minimal coastal scene: the three women are now standing on a flat green lawn. Behind them is a cliff edge with the ocean visible below, and a couple of palm trees in the background. Keep everything else exactly the same — including the crop, position, pose, lighting, proportions, and clothing of the women. Do not change their appearance or composition. Only the background should be replaced.",
+    "lora": "",
+    "url": "https://v3.fal.media/files/panda/ttjEBNJVi-O1mYEYWMbiG.png"
+  },
+  {
+    "id": 1754390184449,
+    "prompt": "(no prompt)",
+    "lora": "Character Blend",
+    "url": "https://v3.fal.media/files/penguin/pgrwF1U1i2NVKGyRA68sS.png"
+  },
+  {
+    "id": 1754390274695,
+    "prompt": "(no prompt)",
+    "lora": "Colorfulness",
+    "url": "https://v3.fal.media/files/koala/Qv-3p0JEBxPfGROVaqVLT.png"
+  },
+  {
+    "id": 1754390302846,
+    "prompt": "(no prompt)",
+    "lora": "Colorfulness",
+    "url": "https://v3.fal.media/files/zebra/2obqeOZGJZ9HnNU0YnvTd.png"
+  },
+  {
+    "id": 1754390365191,
+    "prompt": "day light",
+    "lora": "Colorfulness",
+    "url": "https://v3.fal.media/files/koala/22iliK3Ry_yO872UIPUw5.png"
+  }
+]

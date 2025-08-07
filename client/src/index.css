@@ -1,0 +1,20 @@
+/* === глобальные базовые === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- наш фон + текст по умолчанию --- */
+html, body, #root {
+  height: 100%;
+  background: #121212;   /* глубокий тёмный */
+  color: #e5e5e5;        /* светлый текст, чтобы не пропал */
+}
+
+/* скроллбар (необязательно) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b2b2b;
+  border-radius: 4px;
+}

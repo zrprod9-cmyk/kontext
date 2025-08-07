@@ -1,0 +1,18 @@
+html,body,#root{height:100%;margin:0}
+.wrap{display:flex;height:100%;font-family:Arial,Helvetica,sans-serif}
+aside{width:32%;background:#151515;color:#fff;padding:20px;overflow:auto}
+aside h3{margin-top:0}
+aside label{display:block;margin:14px 0;font-size:14px}
+aside input[type=text],aside textarea{width:100%;padding:8px;border-radius:4px;border:none}
+aside input[type=file]{margin-top:6px}
+aside input[type=range]{width:100%}
+aside button{padding:10px 20px;border:none;border-radius:4px;background:#6d28d9;color:#fff;cursor:pointer}
+.thumb img{width:100%;border-radius:4px;margin-top:10px}
+main{flex:1;background:#222;color:#fff;padding:20px;display:flex;flex-direction:column;align-items:center}
+main img.result{max-width:100%;border-radius:8px;box-shadow:0 0 10px #0006;margin-top:20px}
+.error{
+  color:#e53935;
+  background:#40000055;
+  padding:10px;
+  border-radius:4px;
+}
