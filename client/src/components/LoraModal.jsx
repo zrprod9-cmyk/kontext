@@ -1,10 +1,8 @@
 /* client/src/components/LoraModal.jsx */
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { Plus, X, Pencil, Trash2 } from 'lucide-react';
 import Compare from './Compare';
-
-const API = import.meta.env.VITE_API_URL || '';
 
 export default function LoraModal({
   open,
@@ -37,7 +35,7 @@ export default function LoraModal({
 
   const handleDelete = async (id) => {
     if (!window.confirm('Удалить эту LoRA?')) return;
-    await axios.delete(`${API}/api/loras/${id}`);
+    await api.delete(`/api/loras/${id}`);
     onDelete(id);
     if (editId === id) reset();
   };
@@ -52,10 +50,10 @@ export default function LoraModal({
     Object.entries(files).forEach(([k, v]) => v && fd.append(k, v));
 
     if (editId > 0) {
-      await axios.put(`${API}/api/loras/${editId}`, fd);
+      await api.put(`/api/loras/${editId}`, fd);
       onUpdate(editId, f);
     } else {
-      const { data } = await axios.post(`${API}/api/loras`, fd);
+      const { data } = await api.post('/api/loras', fd);
       onAdd(data);
     }
     reset();
