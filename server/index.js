@@ -48,8 +48,8 @@ const withLock = async (key, fn) => {
 
 /* ---------- express ---------- */
 const allowedOrigins = [
-  'http://localhost:5173',
-  'https://kontext.gosystem.io'
+  'https://kontext.gosystem.io',
+  'http://localhost:5173'
 ];
 
 const app = express();
@@ -250,7 +250,7 @@ if (fssync.existsSync(dist)) {
 }
 
 /* ---------- запускаем ---------- */
-const server = app.listen(4000, () =>
-  console.log('API & UI ⇒ http://localhost:4000')
+const server = app.listen(4000, '0.0.0.0', () =>
+  console.log('API & UI ⇒ http://0.0.0.0:4000')
 );
 server.setTimeout(240_000); // 4 минуты на любой запрос
