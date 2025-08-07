@@ -1,11 +1,10 @@
 /* client/src/components/ImageCard.jsx */
-import api from '../api';
+import { api } from '../api';
 import { Download, Trash2 } from 'lucide-react';
 
 export default function ImageCard({ img, boardId, onRemove, onShow }) {
   const save = async () => {
-    const res = await fetch(img.url, { mode: 'cors' });
-    const blob = await res.blob();
+    const { data: blob } = await api.get(img.url, { responseType: 'blob', withCredentials: false });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
