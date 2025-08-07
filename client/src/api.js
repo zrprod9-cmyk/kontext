@@ -1,11 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
-// Determine the API base URL.
-// Priority:
-// 1. `VITE_API_URL` environment variable
-// 2. Current origin with `/api` path
-const baseURL =
-  import.meta.env.VITE_API_URL || `${window.location.origin}/api`;
+// 1️⃣ first priority - env variable injected at build
+const envUrl = import.meta.env.VITE_API_URL?.trim();
 
-export default axios.create({ baseURL });
+// 2️⃣ second - same-origin backend on :4000 (for dev preview)
+const sameOriginUrl = `${window.location.protocol}//${window.location.hostname}:4000/api`;
+
+// final baseURL
+const baseURL = envUrl || sameOriginUrl;
+
+console.log("[API] baseURL =", baseURL); // remove later
+export const api = axios.create({ baseURL, withCredentials: true });
 

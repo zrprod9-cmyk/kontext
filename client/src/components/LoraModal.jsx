@@ -1,6 +1,6 @@
 /* client/src/components/LoraModal.jsx */
 import { useState, useEffect } from 'react';
-import api from '../api';
+import { api } from '../api';
 import { Plus, X, Pencil, Trash2 } from 'lucide-react';
 import Compare from './Compare';
 

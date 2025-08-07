@@ -1,5 +1,5 @@
 /* client/src/App.jsx */
-import api from './api';
+import { api } from './api';
 import React, { useState, useEffect, useRef } from 'react';
 
 import Sidebar from './components/Sidebar';
