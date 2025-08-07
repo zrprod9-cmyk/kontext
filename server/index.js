@@ -49,26 +49,24 @@ const withLock = async (key, fn) => {
 /* ---------- express ---------- */
 const allowedOrigins = [
   'https://kontext.gosystem.io',
-  'http://localhost:5173'
+  'http://localhost:5173',
 ];
 
+const corsOptions = {
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return cb(null, true);
+    }
+    return cb(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+};
+
 const app = express();
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true
-  })
-);
-app.use((req, res, next) => {
-  const origin = allowedOrigins.includes(req.headers.origin)
-    ? req.headers.origin
-    : allowedOrigins[0];
-  res.setHeader('Access-Control-Allow-Origin', origin);
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json({ limit: '5mb' }));
 const upload = multer({ storage: multer.memoryStorage() });
 

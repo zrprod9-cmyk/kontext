@@ -10,7 +10,12 @@ export default function Sidebar({ boards, current, onNew, onPick, onDelete, thum
 
   const [up, setUp] = useState(false);
   const [down, setDown] = useState(false);
+
+  const list = Array.isArray(boards) ? boards : [];
   useEffect(() => {
+    if (!Array.isArray(boards)) {
+      console.error('Sidebar expected "boards" to be an array', boards);
+    }
     const el = listRef.current;
     if (!el) return;
     const calc = () => {
@@ -37,8 +42,8 @@ export default function Sidebar({ boards, current, onNew, onPick, onDelete, thum
       </button>
 
       <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto px-1">
-        {Array.isArray(boards) ? (
-          [...boards].reverse().map((b, i) => (
+        {list.length ? (
+          [...list].reverse().map((b, i) => (
             <div
               key={b.id ?? i}
               className={`group relative mx-auto h-20 w-20 overflow-hidden rounded border ${
