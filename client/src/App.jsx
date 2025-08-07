@@ -31,10 +31,23 @@ export default function App() {
 
   useEffect(() => {
     axios.get(`${API}/api/loras`).then((r) => setLoraList(r.data));
-    axios.get(`${API}/api/boards`).then((r) => {
-      setBoards(r.data);
-      if (r.data.length) setBid(r.data[r.data.length - 1].id);
-    });
+    (async () => {
+      const { data: boards } = await axios.get(`${API}/api/boards`);
+      setBoards(boards);
+      if (boards.length) setBid(boards[boards.length - 1].id);
+
+      const thumbsEntries = await Promise.all(
+        boards.map(async (b) => {
+          const { data: imgs } = await axios.get(`${API}/api/boards/${b.id}`);
+          const last = imgs.at(-1)?.url;
+          return last ? [b.id, last] : null;
+        })
+      );
+      setThumbs((t) => ({
+        ...t,
+        ...Object.fromEntries(thumbsEntries.filter(Boolean)),
+      }));
+    })();
   }, []);
 
   useEffect(() => {
