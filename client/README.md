@@ -10,3 +10,13 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## API configuration
+
+The frontend uses an environment variable to determine the backend API URL. Copy `.env.example` to `.env` and set `VITE_API_URL` to the address of your backend, e.g.
+
+```bash
+VITE_API_URL=http://192.168.200.251:4000
+```
+
+During development the app falls back to `http://localhost:4000` if the variable is not set.

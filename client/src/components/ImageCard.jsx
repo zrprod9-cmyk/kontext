@@ -1,8 +1,6 @@
 /* client/src/components/ImageCard.jsx */
-import axios from 'axios';
+import api from '../api';
 import { Download, Trash2 } from 'lucide-react';
-
-const API = import.meta.env.VITE_API_URL || '';
 
 export default function ImageCard({ img, boardId, onRemove, onShow }) {
   const save = async () => {
@@ -17,7 +15,7 @@ export default function ImageCard({ img, boardId, onRemove, onShow }) {
   };
 
   const del = async () => {
-    await axios.delete(`${API}/api/boards/${boardId}/images/${img.id}`);
+    await api.delete(`/api/boards/${boardId}/images/${img.id}`);
     onRemove(img.id);
   };
 
