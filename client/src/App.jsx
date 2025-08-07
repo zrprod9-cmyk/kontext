@@ -40,16 +40,16 @@ export default function App() {
   };
 
   useEffect(() => {
-    api.get('/api/loras').then((r) => setLoraList(r.data));
+    api.get('/loras').then((r) => setLoraList(r.data));
     (async () => {
-      const { data: boards } = await api.get('/api/boards');
+      const { data: boards } = await api.get('/boards');
       setBoards(boards);
       if (boards.length) setBid(boards[boards.length - 1].id);
       const cacheObj = {};
       const thumbsObj = {};
       await Promise.all(
         boards.map(async (b) => {
-          const { data: imgs } = await api.get(`/api/boards/${b.id}`);
+          const { data: imgs } = await api.get(`/boards/${b.id}`);
           cacheObj[b.id] = imgs;
           cacheImages(imgs);
           const last = imgs.at(-1)?.url;
@@ -70,7 +70,7 @@ export default function App() {
         setThumbs((t) => ({ ...t, [bid]: cached[cached.length - 1].url }));
       return;
     }
-    api.get(`/api/boards/${bid}`).then((r) => {
+    api.get(`/boards/${bid}`).then((r) => {
       setGal(r.data);
       setCache((c) => ({ ...c, [bid]: r.data }));
       if (r.data.length)
@@ -122,7 +122,7 @@ export default function App() {
       if (pick?.name) fd.append('lora_name', pick.name);
 
       const { data } = await api.post(
-        `/api/boards/${bid}/generate`,
+        `/boards/${bid}/generate`,
         fd
       );
 
@@ -147,7 +147,7 @@ export default function App() {
   };
 
   const newBoard = async () => {
-    const { data } = await api.post('/api/boards');
+    const { data } = await api.post('/boards');
     setBoards([...boards, data]);
     setBid(data.id);
     setGal([]);
@@ -163,7 +163,7 @@ export default function App() {
         onNew={newBoard}
         onPick={setBid}
         onDelete={async (id) => {
-          await api.delete(`/api/boards/${id}`);
+          await api.delete(`/boards/${id}`);
           setBoards(boards.filter((b) => b.id !== id));
           setCache((c) => {
             const { [id]: _, ...rest } = c;

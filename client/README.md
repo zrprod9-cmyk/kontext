@@ -13,10 +13,17 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## API configuration
 
-The frontend uses an environment variable to determine the backend API URL. Copy `.env.example` to `.env` and set `VITE_API_URL` to the address of your backend, e.g.
+The frontend uses an environment variable to determine the backend API URL. Copy `.env.example` to `.env.development` and set `VITE_API_URL` to the address of your backend API, e.g.
 
 ```bash
-VITE_API_URL=http://192.168.200.251:4000
+VITE_API_URL=http://192.168.200.251:4000/api
 ```
 
-During development the app falls back to `http://localhost:4000` if the variable is not set.
+For production deployments, create `.env.production`:
+
+```bash
+# .env.production
+VITE_API_URL=https://kontext.gosystem.io/api
+```
+
+If `VITE_API_URL` is not set, requests default to `${window.location.origin}/api`.

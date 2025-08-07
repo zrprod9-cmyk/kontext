@@ -15,7 +15,7 @@ export default function ImageCard({ img, boardId, onRemove, onShow }) {
   };
 
   const del = async () => {
-    await api.delete(`/api/boards/${boardId}/images/${img.id}`);
+    await api.delete(`/boards/${boardId}/images/${img.id}`);
     onRemove(img.id);
   };
 
