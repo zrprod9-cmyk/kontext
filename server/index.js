@@ -13,22 +13,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /* ---------- ENV & FAL ---------- */
 dotenv.config({ path: path.join(__dirname, '.env') });
- codex/fetch-and-validate-fal_key-in-index.js
-const falKey = process.env.FAL_KEY;
+const falKey = process.env.FAL_KEY?.trim();
 if (!falKey) {
   const msg = 'Missing FAL_KEY environment variable';
   console.error(msg);
   throw new Error(msg);
 }
-fal.config({ credentials: falKey.trim() });
-
-const falKey = process.env.FAL_KEY?.trim();
-if (falKey) {
-  fal.config({ credentials: falKey });
-} else {
-  console.warn('⚠️  FAL_KEY environment variable is missing');
-}
- master
+fal.config({ credentials: falKey });
 
 /* ---------- tiny JSON “DB” helpers ---------- */
 const read = async (f, d = []) =>
@@ -56,8 +47,28 @@ const withLock = async (key, fn) => {
 };
 
 /* ---------- express ---------- */
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://kontext.gosystem.io'
+];
+
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true
+  })
+);
+app.use((req, res, next) => {
+  const origin = allowedOrigins.includes(req.headers.origin)
+    ? req.headers.origin
+    : allowedOrigins[0];
+  res.setHeader('Access-Control-Allow-Origin', origin);
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 app.use(express.json({ limit: '5mb' }));
 const upload = multer({ storage: multer.memoryStorage() });
 
