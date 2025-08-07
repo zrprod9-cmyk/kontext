@@ -22,7 +22,7 @@ export default function ImageCard({ img, boardId, onRemove, onShow }) {
   };
 
   return (
-    <div className="relative space-y-2 rounded-lg bg-muted/40 p-3 shadow group">
+    <div className="relative space-y-2 rounded-lg bg-muted p-3 shadow group">
       <p className="text-xs">{img.prompt || '(no prompt)'}</p>
       {img.lora && (
         <span className="rounded bg-primary/20 px-2 py-0.5 text-[10px] text-primary">

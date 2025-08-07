@@ -1,7 +1,7 @@
 /* client/src/components/LoaderCard.jsx */
 export default function LoaderCard() {
   return (
-    <div className="flex h-[310px] flex-col rounded-lg bg-muted/40 p-3 shadow">
+    <div className="flex h-[310px] flex-col rounded-lg bg-muted p-3 shadow">
       <div className="flex flex-1 items-center justify-center">
         <svg
           className="h-10 w-10 animate-spin text-primary"

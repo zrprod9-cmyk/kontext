@@ -14,7 +14,7 @@ export default function ControlBar({
   err
 }) {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-muted bg-background/95 px-4 py-3 backdrop-blur">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-muted bg-background px-4 py-3">
       <div className="mx-auto flex max-w-3xl flex-wrap items-center gap-3">
         <Btn onClick={() => setOpenLora(true)} className="h-10 px-3">
           {pick ? pick.name : 'Add lora'}
