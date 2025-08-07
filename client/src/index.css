@@ -3,11 +3,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* --- наш фон + текст по умолчанию --- */
-html, body, #root {
+@layer base {
+  :root {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --border: 217.2 32.6% 17.5%;
+    --primary: 263.4 70% 50.5%;
+    --primary-foreground: 210 40% 98%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html,
+body,
+#root {
   height: 100%;
-  background: #121212;   /* глубокий тёмный */
-  color: #e5e5e5;        /* светлый текст, чтобы не пропал */
 }
 
 /* скроллбар (необязательно) */
